@@ -174,9 +174,9 @@ def build_html(rankings, facts):
 </head>
 <body>
 <header>
-  <div class="header-label">Data Engineering Proof of Concept — Multi-County Analysis</div>
+  <div class="header-label">Proof of Concept: Multi-County Analysis</div>
   <h1>Northeast Georgia<br>Land Investor Activity Comparison</h1>
-  <p class="header-sub">5-County Investor Activity Index · LandGeek Market Intelligence</p>
+  <p class="header-sub">Multi-County Investor Activity Index: Market Intelligence</p>
   <div class="header-meta">
     <div class="meta-item"><span class="meta-label">Generated</span><span class="meta-value">{gen_date}</span></div>
     <div class="meta-item"><span class="meta-label">Analysis Window</span><span class="meta-value">Jan 2022 – Dec 2024</span></div>
@@ -201,31 +201,10 @@ def build_html(rankings, facts):
     </div>
   </section>
   <section>
-    <div class="section-label">Strongest Signals Across All Counties</div>
-    <h2>Top Quick Flip Parcels</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Parcel ID</th><th>County</th><th>Sale Date</th><th>Sale Price</th><th>Acres</th><th>Neighborhood</th><th>Investor Score</th></tr></thead>
-        <tbody>{flip_rows}</tbody>
-      </table>
-    </div>
-  </section>
-  <section>
-    <div class="section-label">Analysis</div>
-    <h2>Key Findings</h2>
-    <ul class="findings-list">
-      <li><div class="finding-num">1</div><div class="finding-text"><strong>Elbert County is the clear leader</strong> with an IAI of 35.9, 22 investor-flagged transactions, and 20 quick flip parcels — the highest activity across all 5 counties.</div></li>
-      <li><div class="finding-num">2</div><div class="finding-text"><strong>Wilkes County is a strong second</strong> with an IAI of 28.5 and 12 confirmed flip parcels. On a per-transaction basis, Wilkes has a comparable flip rate to Elbert.</div></li>
-      <li><div class="finding-num">3</div><div class="finding-text"><strong>McDuffie and Lincoln show clustering without flipping</strong> — buyers active in concentrated neighborhoods but no parcels turned over twice. Possible early-stage investor adoption.</div></li>
-      <li><div class="finding-num">4</div><div class="finding-text"><strong>Warren County is effectively dormant</strong> with only 2 transactions in 3 years. Could indicate tightly held family land, data gaps, or an undiscovered market.</div></li>
-      <li><div class="finding-num">5</div><div class="finding-text"><strong>All scores are conservative.</strong> Missing grantor/grantee data means LLC buyer, out-of-state, and repeat buyer flags are inactive. Real scores likely 20–30 points higher.</div></li>
-    </ul>
-  </section>
-  <section>
     <div class="section-label">Roadmap</div>
     <h2>Next Steps to Strengthen This Analysis</h2>
     <div class="next-grid">
-      <div class="next-card"><h4>Add Deed Data</h4><p>Integrate GSCCCA grantor/grantee records to activate LLC buyer, out-of-state buyer, and repeat buyer flags.</p></div>
+      <div class="next-card"><h4>Refine Metrics</h4><p>Deepen knowledge of land deal fundamentals to refine these metrics into something more actionable and useful for active land investors.</p></div>
       <div class="next-card"><h4>Expand Counties</h4><p>Apply the same pipeline to all 159 Georgia counties to produce a statewide ranking and identify undiscovered markets.</p></div>
       <div class="next-card"><h4>Automate Refresh</h4><p>Schedule the pipeline to pull fresh data quarterly so rankings stay current and new activity is flagged automatically.</p></div>
     </div>
@@ -269,7 +248,7 @@ def build_pdf(rankings, facts):
     story = []
     gen_date = datetime.now().strftime("%B %d, %Y")
 
-    story.append(Paragraph("DATA ENGINEERING PROOF OF CONCEPT — MULTI-COUNTY ANALYSIS", S_label))
+    story.append(Paragraph("Proof of Concept: Multi-County Analysis", S_label))
     story.append(Paragraph("Northeast Georgia — Land Investor Activity Comparison", S_h1))
     story.append(Paragraph(f"Generated: {gen_date}  |  Window: Jan 2022 - Dec 2024  |  Counties: Elbert, Lincoln, Wilkes, Warren, McDuffie  |  Total: {int(facts.shape[0])} transactions", S_small))
     story.append(HRFlowable(width="100%", thickness=1, color=GOLD, spaceAfter=14))
